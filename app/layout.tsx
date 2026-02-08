@@ -1,7 +1,9 @@
-import Nav from "@/components/nav";
 import type { Metadata } from "next";
 import { Fragment_Mono } from "next/font/google";
+import Footer from "@/components/footer";
+import Nav from "@/components/nav";
 import "./globals.css";
+import Providers from "./providers";
 
 const fragmentMono = Fragment_Mono({
   weight: "400",
@@ -18,13 +20,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${fragmentMono.className} antialiased`}>
-        <Nav />
+        <Providers>
+          <Nav />
 
-        <main className="mt-16 max-w-6xl mx-auto px-8 min-h-[calc(100vh-64px)]">
-          {children}
-        </main>
+          {/* 128px = 64px (nav height) + 64px (footer height) */}
+          <main className="mt-16 max-w-6xl mx-auto px-8 min-h-[calc(100vh-128px)]">
+            {children}
+          </main>
+
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

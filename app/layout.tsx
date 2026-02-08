@@ -1,3 +1,4 @@
+import Nav from "@/components/nav";
 import type { Metadata } from "next";
 import { Fragment_Mono } from "next/font/google";
 import "./globals.css";
@@ -19,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fragmentMono.className} antialiased`}>
-        {children}
+        <Nav />
+
+        <main className="mt-16 max-w-6xl mx-auto px-8 min-h-[calc(100vh-64px)]">
+          {children}
+        </main>
       </body>
     </html>
   );

@@ -1,5 +1,4 @@
 import { Menu } from "lucide-react";
-import Link from "next/link";
 import {
   Sheet,
   SheetContent,
@@ -7,8 +6,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "./ui/button";
+import NavItem from "./nav-item";
 
 export default function Nav() {
   return (
@@ -19,11 +17,7 @@ export default function Nav() {
         <MobileNav />
       </div>
 
-      <NavItem
-        content="WORK"
-        href="/work"
-        className="md:col-start-8 col-start-3"
-      />
+      <NavItem content="WORK" href="/" className="md:col-start-8 col-start-3" />
       <NavItem
         content="INFO"
         href="/info"
@@ -35,36 +29,6 @@ export default function Nav() {
         className="md:col-start-10 col-start-5"
       />
     </nav>
-  );
-}
-
-function NavItem({
-  content,
-  href,
-  className,
-}: {
-  content: string;
-  href: string;
-  className?: string;
-}) {
-  return (
-    <div className={cn("items-center group hidden sm:flex", className)}>
-      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary">
-        [
-      </span>
-      <Link
-        href={href}
-        className={buttonVariants({
-          variant: "link",
-          className: "text-xs",
-        })}
-      >
-        {content}
-      </Link>
-      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary">
-        ]
-      </span>
-    </div>
   );
 }
 

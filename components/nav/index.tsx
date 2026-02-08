@@ -16,7 +16,7 @@ export default function Nav() {
         <p className="md:col-span-4 sm:col-span-2 col-span-4">KALEEM BHATTI</p>
       </Link>
 
-      <div className="flex items-center justify-end sm:hidden">
+      <div className="flex items-center justify-end sm:hidden col-span-4">
         <MobileNav />
       </div>
 

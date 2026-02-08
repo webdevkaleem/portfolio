@@ -22,8 +22,8 @@ export default function NavItem({
     <div className={cn("items-center group hidden sm:flex", className)}>
       <span
         className={cn(
-          "opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary",
-          isActive && "opacity-100",
+          "opacity-0 transition-opacity duration-300 text-primary",
+          !isActive && "opacity-100",
         )}
       >
         [
@@ -39,8 +39,8 @@ export default function NavItem({
       </Link>
       <span
         className={cn(
-          "opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-primary",
-          isActive && "opacity-100",
+          "opacity-0 transition-opacity duration-300 text-primary",
+          !isActive && "opacity-100",
         )}
       >
         ]

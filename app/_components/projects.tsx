@@ -89,7 +89,7 @@ export default function Projects() {
           );
         })}
       </CarouselContent>
-      <div className="flex items-center justify-end gap-2 mt-4">
+      <div className="flex items-center gap-2 mt-4">
         <CarouselPrevious className="static translate-y-0" />
         <CarouselNext className="static translate-y-0" />
       </div>

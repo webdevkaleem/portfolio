@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -15,11 +15,13 @@ import {
 
 const projects = [
   {
-    image: "/projects/uploadthingui.png",
+    image:
+      "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4xOlbUATUO1mxe7voiVLwPh6n4FGslQgZrRYu",
     href: "/projects/uploadthingui",
   },
   {
-    image: "/projects/shopnextify.png",
+    image:
+      "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC42hUG06AaIkQh1tS3WsYjKoi8C4TzNuqm92Pr",
     href: "/projects/shopnextify",
   },
 ];
@@ -47,7 +49,7 @@ export default function Projects() {
               className="pl-4 basis-1/2 md:basis-1/3"
             >
               <div
-                className={`group flex flex-col gap-1 text-xs transition-all duration-500 ease-out ${
+                className={`group relative flex flex-col gap-1 text-xs transition-all duration-500 ease-out ${
                   shouldDim ? "blur-sm opacity-50" : "blur-0 opacity-100"
                 } ${isHovered ? "z-10" : ""}`}
               >
@@ -66,6 +68,9 @@ export default function Projects() {
                       isHovered ? "shadow-md shadow-white/20" : "shadow-none"
                     } ${shouldDim ? "scale-y-[0.85]" : "scale-y-100"}`}
                   />
+                  <div className="w-[480px] h-[270px] flex items-center justify-center -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <Loader2 className="size-4 animate-spin" />
+                  </div>
                 </Link>
                 <div className="flex items-center justify-between">
                   <h1

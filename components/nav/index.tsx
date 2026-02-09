@@ -11,9 +11,11 @@ import NavItem from "./nav-item";
 
 export default function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 py-8 grid grid-cols-5 md:grid-cols-10 items-center h-16 z-50 px-8 max-w-6xl mx-auto text-xs">
+    <nav className="fixed top-0 bg-background/90 left-0 right-0 py-8 grid grid-cols-5 md:grid-cols-10 items-center h-16 z-50 px-8 max-w-6xl mx-auto text-xs">
       <Link href="/">
-        <p className="md:col-span-4 sm:col-span-2 col-span-4">KALEEM BHATTI</p>
+        <p className="md:col-span-4 sm:col-span-2 col-span-4 text-nowrap">
+          KALEEM BHATTI
+        </p>
       </Link>
 
       <div className="flex items-center justify-end sm:hidden col-span-4">

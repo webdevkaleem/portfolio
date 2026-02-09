@@ -43,9 +43,28 @@ function MobileNav() {
       <SheetTrigger className={"sm:hidden"}>
         <Menu />
       </SheetTrigger>
-      <SheetContent className="w-full">
+      <SheetContent>
         <SheetHeader>
           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+          <SheetContent className="flex items-center justify-center w-full">
+            <div className="flex items-center justify-center gap-4 w-2/3 flex-col">
+              <NavItem
+                content="WORK"
+                href="/"
+                className="md:col-start-8 col-start-3 justify-between flex"
+              />
+              <NavItem
+                content="INFO"
+                href="/info"
+                className="md:col-start-9 col-start-4 justify-between flex"
+              />
+              <NavItem
+                content="CONTACT"
+                href="/contact"
+                className="md:col-start-10 col-start-5 justify-between flex"
+              />
+            </div>
+          </SheetContent>
         </SheetHeader>
       </SheetContent>
     </Sheet>

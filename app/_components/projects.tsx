@@ -46,7 +46,7 @@ export default function Projects() {
           return (
             <CarouselItem
               key={`project-${index}-${project.image}`}
-              className="pl-4 basis-1/2 md:basis-1/3"
+              className="pl-4 basis-2/3 md:basis-1/3"
             >
               <div
                 className={`group relative flex flex-col gap-1 text-xs transition-all duration-500 ease-out ${

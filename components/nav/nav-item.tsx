@@ -8,10 +8,12 @@ import { buttonVariants } from "../ui/button";
 export default function NavItem({
   content,
   href,
+  onClick,
   className,
 }: {
   content: string;
   href: string;
+  onClick?: () => void;
   className?: string;
 }) {
   const pathname = usePathname();
@@ -34,6 +36,7 @@ export default function NavItem({
           variant: "link",
           className: "text-xs",
         })}
+        onClick={onClick}
       >
         {content}
       </Link>

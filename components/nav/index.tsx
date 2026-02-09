@@ -1,12 +1,5 @@
-import { Menu } from "lucide-react";
 import Link from "next/link";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import MobileNav from "./mobile-nav";
 import NavItem from "./nav-item";
 
 export default function Nav() {
@@ -34,20 +27,5 @@ export default function Nav() {
         className="md:col-start-10 col-start-5"
       />
     </nav>
-  );
-}
-
-function MobileNav() {
-  return (
-    <Sheet>
-      <SheetTrigger className={"sm:hidden"}>
-        <Menu />
-      </SheetTrigger>
-      <SheetContent className="w-full">
-        <SheetHeader>
-          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-        </SheetHeader>
-      </SheetContent>
-    </Sheet>
   );
 }

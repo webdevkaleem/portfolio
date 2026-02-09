@@ -1,12 +1,5 @@
-import { Menu } from "lucide-react";
 import Link from "next/link";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import MobileNav from "./mobile-nav";
 import NavItem from "./nav-item";
 
 export default function Nav() {
@@ -34,39 +27,5 @@ export default function Nav() {
         className="md:col-start-10 col-start-5"
       />
     </nav>
-  );
-}
-
-function MobileNav() {
-  return (
-    <Sheet>
-      <SheetTrigger className={"sm:hidden"}>
-        <Menu />
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-          <SheetContent className="flex items-center justify-center w-full">
-            <div className="flex items-center justify-center gap-4 w-2/3 flex-col">
-              <NavItem
-                content="WORK"
-                href="/"
-                className="md:col-start-8 col-start-3 justify-between flex"
-              />
-              <NavItem
-                content="INFO"
-                href="/info"
-                className="md:col-start-9 col-start-4 justify-between flex"
-              />
-              <NavItem
-                content="CONTACT"
-                href="/contact"
-                className="md:col-start-10 col-start-5 justify-between flex"
-              />
-            </div>
-          </SheetContent>
-        </SheetHeader>
-      </SheetContent>
-    </Sheet>
   );
 }

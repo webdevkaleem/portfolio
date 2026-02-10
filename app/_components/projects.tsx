@@ -79,15 +79,17 @@ export default function Projects() {
                     [{index < 9 ? `0${index + 1}` : index + 1}]
                   </h1>
 
-                  <Link
-                    href={project.href}
-                    className={buttonVariants({
-                      variant: "link",
-                      className: "text-xs",
-                    })}
-                  >
-                    VIEW PROJECT <ArrowRight className="size-3" />
-                  </Link>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Link
+                      href={project.href}
+                      className={buttonVariants({
+                        variant: "link",
+                        className: "text-xs",
+                      })}
+                    >
+                      VIEW PROJECT <ArrowRight className="size-3" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </CarouselItem>

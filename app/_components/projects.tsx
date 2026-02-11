@@ -55,20 +55,20 @@ export default function Projects() {
               >
                 <Link
                   href={project.href}
-                  className="block overflow-hidden rounded-sm"
+                  className="relative block overflow-hidden rounded-sm aspect-video"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <Image
                     src={project.image}
                     alt={`Project ${index + 1}`}
-                    width={480}
-                    height={270}
-                    className={`w-full h-full object-cover transition-all duration-500 origin-bottom ${
+                    fill
+                    sizes="(max-width: 768px) 66vw, 33vw"
+                    className={`object-cover transition-all duration-500 origin-bottom ${
                       isHovered ? "shadow-md shadow-white/20" : "shadow-none"
                     } ${shouldDim ? "scale-y-[0.85]" : "scale-y-100"}`}
                   />
-                  <div className="w-[480px] h-[270px] flex items-center justify-center -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="absolute inset-0 flex items-center justify-center -z-10">
                     <Loader2 className="size-4 animate-spin" />
                   </div>
                 </Link>

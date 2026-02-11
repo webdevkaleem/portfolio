@@ -14,26 +14,18 @@ export default function UploadThingUIPage() {
     {
       id: "uploadthing-ui-1",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4cDwxDC5uHvsqYGMgWbSA6kaReXUyl5p8VQB9",
-      width: 1920,
-      height: 1080,
     },
     {
       id: "uploadthing-ui-2",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4IIrI4WxV8sanXqyBWMmOtg7DLTNjzc4vfbA2",
-      width: 1920,
-      height: 1080,
     },
     {
       id: "uploadthing-ui-3",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC46aiwdUajkBsD9YimpL4IvJhS21TZRCWlcwVg",
-      width: 1920,
-      height: 1080,
     },
     {
       id: "uploadthing-ui-4",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4hKarENvekdtTHA2g3MloWbj9zNfEKucZCrqm",
-      width: 1920,
-      height: 1080,
     },
   ];
 
@@ -60,11 +52,11 @@ export default function UploadThingUIPage() {
           <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
             <h4 className="text-muted-foreground shrink-0">LIVE SITE</h4>
             <Link
-              href="https://uploadthing.com"
+              href="https://uploadthingui.vercel.app"
               target="_blank"
               className="flex items-center gap-1 hover:underline"
             >
-              UPLOADTHING.COM <ArrowUpRight className="size-3" />
+              UPLOADTHINGUI.VERCEL.APP <ArrowUpRight className="size-3" />
             </Link>
           </div>
 
@@ -84,17 +76,18 @@ export default function UploadThingUIPage() {
         {/* Mobile: carousel */}
         <Carousel className="md:hidden w-full">
           <CarouselContent className="ml-0">
-            {galleryImages.map(({ id, src, width, height }, idx) => (
+            {galleryImages.map(({ id, src }, idx) => (
               <CarouselItem key={id} className="pl-0">
-                <Image
-                  src={src}
-                  alt={`UploadThing UI Project ${idx + 1}`}
-                  width={width}
-                  height={height}
-                  sizes="100vw"
-                  className="w-full h-auto"
-                  priority={idx < 2}
-                />
+                <div className="relative aspect-video">
+                  <Image
+                    src={src}
+                    alt={`UploadThing UI Project ${idx + 1}`}
+                    fill
+                    sizes="100vw"
+                    className="object-contain"
+                    priority={idx < 2}
+                  />
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -106,15 +99,14 @@ export default function UploadThingUIPage() {
 
         {/* Desktop: stacked full-width images */}
         <div className="hidden md:grid grid-cols-1 gap-3 md:gap-4">
-          {galleryImages.map(({ id, src, width, height }, idx) => (
-            <div key={id}>
+          {galleryImages.map(({ id, src }, idx) => (
+            <div key={id} className="relative aspect-video">
               <Image
                 src={src}
                 alt={`UploadThing UI Project ${idx + 1}`}
-                width={width}
-                height={height}
+                fill
                 sizes="(max-width: 768px) 100vw, 60vw"
-                className="w-full h-auto"
+                className="object-contain"
                 priority={idx < 2}
               />
             </div>

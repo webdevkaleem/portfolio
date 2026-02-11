@@ -16,7 +16,7 @@ import {
 const projects = [
   {
     image:
-      "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4xOlbUATUO1mxe7voiVLwPh6n4FGslQgZrRYu",
+      "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4cDwxDC5uHvsqYGMgWbSA6kaReXUyl5p8VQB9",
     href: "/projects/uploadthingui",
   },
   {
@@ -55,20 +55,20 @@ export default function Projects() {
               >
                 <Link
                   href={project.href}
-                  className="block overflow-hidden rounded-sm"
+                  className="relative block overflow-hidden rounded-sm aspect-video"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <Image
                     src={project.image}
                     alt={`Project ${index + 1}`}
-                    width={480}
-                    height={270}
-                    className={`w-full h-full object-cover transition-all duration-500 origin-bottom ${
+                    fill
+                    sizes="(max-width: 768px) 66vw, 33vw"
+                    className={`object-cover transition-all duration-500 origin-bottom ${
                       isHovered ? "shadow-md shadow-white/20" : "shadow-none"
                     } ${shouldDim ? "scale-y-[0.85]" : "scale-y-100"}`}
                   />
-                  <div className="w-[480px] h-[270px] flex items-center justify-center -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="absolute inset-0 flex items-center justify-center -z-10">
                     <Loader2 className="size-4 animate-spin" />
                   </div>
                 </Link>
@@ -79,15 +79,17 @@ export default function Projects() {
                     [{index < 9 ? `0${index + 1}` : index + 1}]
                   </h1>
 
-                  <Link
-                    href={project.href}
-                    className={buttonVariants({
-                      variant: "link",
-                      className: "text-xs",
-                    })}
-                  >
-                    VIEW PROJECT <ArrowRight className="size-3" />
-                  </Link>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Link
+                      href={project.href}
+                      className={buttonVariants({
+                        variant: "link",
+                        className: "text-xs",
+                      })}
+                    >
+                      VIEW PROJECT <ArrowRight className="size-3" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </CarouselItem>

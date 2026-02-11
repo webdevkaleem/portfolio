@@ -31,7 +31,7 @@ export default function ShopNextifyPage() {
     },
     {
       id: "shopnextify-ui-4",
-      src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4cCKyAruHvsqYGMgWbSA6kaReXUyl5p8VQB9u",
+      src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4rXi9kasSynQCzAIKtwhOle47WVGfYFqdZBHR",
       width: 1920,
       height: 1080,
     },

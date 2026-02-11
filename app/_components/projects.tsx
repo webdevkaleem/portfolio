@@ -16,7 +16,7 @@ import {
 const projects = [
   {
     image:
-      "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4xOlbUATUO1mxe7voiVLwPh6n4FGslQgZrRYu",
+      "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4cDwxDC5uHvsqYGMgWbSA6kaReXUyl5p8VQB9",
     href: "/projects/uploadthingui",
   },
   {

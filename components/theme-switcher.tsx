@@ -10,9 +10,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useMediaQuery } from "./hooks/use-media-query";
 
 export function ThemeSwitcher() {
   const { setTheme } = useTheme();
+
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
     <DropdownMenu>
@@ -23,7 +26,7 @@ export function ThemeSwitcher() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" side={isDesktop ? "left" : "right"}>
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light
         </DropdownMenuItem>

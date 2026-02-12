@@ -43,7 +43,7 @@ export default function ContactPage() {
     },
     {
       content: "DISCORD",
-      href: "https://discord.gg/cAa3dJmq",
+      href: "https://discordapp.com/users/1311592758258958337",
       icon: MessageCircle,
       description: "Drop me a message",
       className: "sm:col-span-3 lg:col-span-3",

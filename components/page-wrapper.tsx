@@ -13,9 +13,7 @@ export default function PageWrapper({
   children: React.ReactNode;
   className?: string;
 }) {
-  const [showScrollTop, setShowScrollTop] = useState(
-    () => typeof window !== "undefined" && window.scrollY > 220,
-  );
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {

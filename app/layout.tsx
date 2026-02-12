@@ -8,6 +8,19 @@ import Providers from "./providers";
 
 const fragmentMono = Fragment_Mono({
   weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: [
+    "ui-monospace",
+    "SFMono-Regular",
+    "Menlo",
+    "Monaco",
+    "Consolas",
+    "Liberation Mono",
+    "Courier New",
+    "monospace",
+  ],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {

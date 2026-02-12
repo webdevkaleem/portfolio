@@ -13,7 +13,9 @@ export default function PageWrapper({
   children: React.ReactNode;
   className?: string;
 }) {
-  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(
+    () => typeof window !== "undefined" && window.scrollY > 220,
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -27,32 +29,33 @@ export default function PageWrapper({
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={cn("flex flex-col gap-16", className)}
-    >
-      {children}
-      <Button
-        asChild
-        variant="outline"
-        size="icon"
-        className={cn(
-          "fixed bottom-6 right-6 rounded-full z-50 p-5",
-          showScrollTop ? "pointer-events-auto" : "pointer-events-none",
-        )}
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className={cn("flex flex-col gap-16", className)}
       >
-        <motion.button
-          type="button"
-          aria-label="Scroll to top"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          animate={{
-            opacity: showScrollTop ? 1 : 0,
-          }}
+        {children}
+      </motion.div>
+      <motion.div
+        aria-label="Scroll to top"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        initial={false}
+        animate={{
+          opacity: showScrollTop ? 1 : 0,
+        }}
+      >
+        <Button
+          variant="outline"
+          size="icon"
+          className={cn(
+            "fixed bottom-6 right-6 rounded-full z-50 p-5",
+            showScrollTop ? "pointer-events-auto" : "pointer-events-none",
+          )}
         >
           <ArrowUp />
-        </motion.button>
-      </Button>
-    </motion.div>
+        </Button>
+      </motion.div>
+    </>
   );
 }

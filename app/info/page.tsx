@@ -19,7 +19,7 @@ export default function InfoPage() {
 
         {/* Right Column - Scrollable Project Gallery */}
         <div className="flex-1">
-          <div className="min-h-96 h-full w-full bg-foreground/10"></div>
+          <div className="min-h-96 h-full w-full bg-foreground/15 dark:bg-foreground/10"></div>
         </div>
       </div>
     </PageWrapper>

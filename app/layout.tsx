@@ -3,6 +3,7 @@ import { Fragment_Mono } from "next/font/google";
 import Footer from "@/components/footer";
 import Nav from "@/components/nav";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import Providers from "./providers";
 
 const fragmentMono = Fragment_Mono({
@@ -33,6 +34,8 @@ export default function RootLayout({
 
           <Footer />
         </Providers>
+
+        <Analytics />
       </body>
     </html>
   );

@@ -34,7 +34,6 @@ export default function NavItem({
         href={href}
         className={buttonVariants({
           variant: "link",
-          className: "text-xs",
         })}
         onClick={onClick}
       >

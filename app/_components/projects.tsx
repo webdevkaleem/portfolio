@@ -49,7 +49,7 @@ export default function Projects() {
               className="pl-4 basis-2/3 md:basis-1/3"
             >
               <div
-                className={`group relative flex flex-col gap-1 text-xs transition-all duration-500 ease-out ${
+                className={`group relative flex flex-col gap-1 transition-all duration-500 ease-out ${
                   shouldDim ? "blur-sm opacity-50" : "blur-0 opacity-100"
                 } ${isHovered ? "z-10" : ""}`}
               >
@@ -84,7 +84,6 @@ export default function Projects() {
                       href={project.href}
                       className={buttonVariants({
                         variant: "link",
-                        className: "text-xs",
                       })}
                     >
                       VIEW PROJECT <ArrowRight className="size-3" />

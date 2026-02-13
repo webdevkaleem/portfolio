@@ -52,11 +52,11 @@ export default function ContactPage() {
 
   return (
     <PageWrapper>
-      <section className="min-h-[calc(100vh-128px)] py-16 md:py-24">
+      <section className="min-h-[calc(100vh-144px)] py-16 md:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-8 md:w-2/3 lg:w-1/2">
             <h1 className="text-5xl leading-tight break-all">CONTACT</h1>
-            <p className="text-lg leading-tight">
+            <p>
               I'm always looking for new opportunities and collaborations. If
               you have any questions or would like to work together, please
               don't hesitate to contact me.
@@ -110,8 +110,8 @@ function ContactCard({
               <Icon className="size-5" />
             </div>
             <div className="space-y-1">
-              <h2 className="text-lg">{content}</h2>
-              <p className="text-sm text-muted-foreground">{description}</p>
+              <h2>{content}</h2>
+              <p className="text-muted-foreground">{description}</p>
             </div>
           </div>
         </CardContent>

@@ -40,8 +40,8 @@ export default function RootLayout({
         <Providers>
           <Nav />
 
-          {/* 128px = 64px (nav height) + 64px (footer height) */}
-          <main className="mt-16 max-w-6xl mx-auto px-8 min-h-[calc(100vh-128px)]">
+          {/* 144px = 80px (nav height) + 64px (footer height) */}
+          <main className="mt-20 max-w-6xl mx-auto px-8 min-h-[calc(100vh-144px)]">
             {children}
           </main>
 

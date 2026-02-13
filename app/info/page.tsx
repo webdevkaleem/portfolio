@@ -1,3 +1,4 @@
+import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import PageWrapper from "@/components/page-wrapper";
 
@@ -20,7 +21,7 @@ export default function InfoPage() {
 
         {/* Right Column - Scrollable Project Gallery */}
         <div className="flex-1">
-          <div className="relative w-full aspect-square bg-foreground/15 dark:bg-foreground/10 overflow-hidden">
+          <div className="relative w-full aspect-square overflow-hidden">
             <Image
               src={
                 "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4u75eGyZ1HBgUXKJ7sYjwhMO0G4qWIVZ3z6ET"
@@ -30,6 +31,9 @@ export default function InfoPage() {
               sizes="(max-width: 768px) 66vw, 33vw"
               className={`object-cover transition-all duration-500 origin-bottom`}
             />
+            <div className="absolute inset-0 flex items-center justify-center -z-10">
+              <Loader2 className="size-4 animate-spin" />
+            </div>
           </div>
         </div>
       </div>

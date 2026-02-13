@@ -52,7 +52,7 @@ export default function ContactPage() {
 
   return (
     <PageWrapper>
-      <section className="min-h-[calc(100vh-144px)] py-16 md:py-24">
+      <section className="min-h-[calc(100vh-176px)] py-16 md:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-8 md:w-2/3 lg:w-1/2">
             <h1 className="text-5xl leading-tight break-all">CONTACT</h1>

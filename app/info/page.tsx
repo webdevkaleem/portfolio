@@ -21,7 +21,7 @@ export default function InfoPage() {
 
         {/* Right Column - Scrollable Project Gallery */}
         <div className="flex-1">
-          <div className="relative w-full aspect-square overflow-hidden">
+          <div className="relative aspect-square overflow-hidden">
             <Image
               src={
                 "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4u75eGyZ1HBgUXKJ7sYjwhMO0G4qWIVZ3z6ET"

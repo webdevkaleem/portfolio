@@ -32,7 +32,7 @@ export default function UploadThingUIPage() {
 
   return (
     <PageWrapper>
-      <div className="min-h-[calc(100vh-144px)] flex flex-col md:flex-row gap-8 md:gap-16 py-16">
+      <div className="min-h-[calc(100vh-176px)] flex flex-col md:flex-row gap-8 md:gap-16 py-16">
         {/* Left Column - Project Info */}
         <div className="flex flex-col justify-between md:w-4/12 md:sticky md:top-20 md:self-start md:py-8">
           <h1 className="text-5xl leading-tight break-all">UPLOADTHING UI</h1>

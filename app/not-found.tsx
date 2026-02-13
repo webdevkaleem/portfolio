@@ -1,6 +1,6 @@
 export default function NotFound() {
   return (
-    <div className="flex flex-col justify-center items-center gap-4 h-full min-h-[calc(100vh-80px)]">
+    <div className="flex flex-col justify-center items-center gap-4 h-full min-h-[calc(100vh-144px)]">
       <h1>Not Found</h1>
     </div>
   );

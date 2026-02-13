@@ -4,7 +4,7 @@ import Projects from "./_components/projects";
 
 export default function Home() {
   return (
-    <PageWrapper>
+    <PageWrapper className="py-16 md:py-0">
       <Hero />
       <Projects />
     </PageWrapper>

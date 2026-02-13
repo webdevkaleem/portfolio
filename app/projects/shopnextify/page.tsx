@@ -82,6 +82,17 @@ export default function ShopNextifyPage() {
               </Link>
             </div>
 
+            <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
+              <h4 className="text-muted-foreground shrink-0">GITHUB</h4>
+              <Link
+                href="https://github.com/webdevkaleem/shopnextify"
+                target="_blank"
+                className="flex items-center gap-1 hover:underline"
+              >
+                GITHUB.COM/../SHOPNEXTIFY <ArrowUpRight className="size-3" />
+              </Link>
+            </div>
+
             <div className="flex flex-col justify-between gap-1">
               <h4 className="text-muted-foreground shrink-0">
                 More Information

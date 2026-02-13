@@ -4,7 +4,7 @@ import NavItem from "./nav-item";
 
 export default function Nav() {
   return (
-    <nav className="fixed top-0 bg-background/90 gap-8 left-0 right-0 py-8 flex justify-center items-center h-16 z-50 px-8 max-w-6xl mx-auto text-sm">
+    <nav className="fixed top-0 bg-background/90 gap-8 left-0 right-0 py-8 flex justify-center items-center h-16 z-50 px-8 max-w-6xl mx-auto">
       <Link href="/" className="text-nowrap mr-auto">
         KALEEM BHATTI
       </Link>

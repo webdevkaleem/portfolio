@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${fragmentMono.className} antialiased`}>
+      <body className={`${fragmentMono.className} antialiased text-sm`}>
         <Providers>
           <Nav />
 

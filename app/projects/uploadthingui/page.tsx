@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
 
 export default function UploadThingUIPage() {
   const galleryImages = [
@@ -35,30 +36,50 @@ export default function UploadThingUIPage() {
       <div className="min-h-[calc(100vh-176px)] flex flex-col md:flex-row gap-8 md:gap-16 py-16">
         {/* Left Column - Project Info */}
         <div className="flex flex-col justify-between md:w-4/12 md:sticky md:top-20 md:self-start md:py-8">
-          <h1 className="text-5xl leading-tight break-all">UPLOADTHING UI</h1>
+          <RandomizedTextEffect
+            as="h1"
+            content={`UPLOADTHING UI`}
+            className="text-5xl leading-tight break-all"
+          />
 
           <div className="flex flex-col gap-8 py-8">
             <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
-              <h4 className="text-muted-foreground shrink-0">YEAR</h4>
-              <p>2025</p>
+              <RandomizedTextEffect
+                as="h4"
+                content={`YEAR`}
+                className="text-muted-foreground shrink-0"
+              />
+              <RandomizedTextEffect as="p" content={`2025`} />
             </div>
 
             <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
-              <h4 className="text-muted-foreground shrink-0">SERVICES</h4>
+              <RandomizedTextEffect
+                as="h4"
+                content={`SERVICES`}
+                className="text-muted-foreground shrink-0"
+              />
               <div className="lg:text-right">
-                <p>DESIGN</p>
-                <p>DEVELOPMENT</p>
+                <RandomizedTextEffect as="p" content={`DESIGN`} />
+                <RandomizedTextEffect as="p" content={`DEVELOPMENT`} />
               </div>
             </div>
 
             <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
-              <h4 className="text-muted-foreground shrink-0">LIVE SITE</h4>
+              <RandomizedTextEffect
+                as="h4"
+                content={`LIVE SITE`}
+                className="text-muted-foreground shrink-0"
+              />
               <Link
                 href="https://uploadthingui.vercel.app"
                 target="_blank"
                 className="flex items-center gap-1 hover:underline"
               >
-                UPLOADTHINGUI.VERCEL.APP <ArrowUpRight className="size-3" />
+                <RandomizedTextEffect
+                  as="p"
+                  content={`UPLOADTHINGUI.VERCEL.APP`}
+                />
+                <ArrowUpRight className="size-3" />
               </Link>
             </div>
 
@@ -69,19 +90,28 @@ export default function UploadThingUIPage() {
                 target="_blank"
                 className="flex items-center gap-1 hover:underline"
               >
-                GITHUB.COM/../UPLOADTHINGUI <ArrowUpRight className="size-3" />
+                <RandomizedTextEffect
+                  as="p"
+                  content={`GITHUB.COM/../UPLOADTHINGUI`}
+                />
+                <ArrowUpRight className="size-3" />
               </Link>
             </div>
 
             <div className="flex flex-col justify-between gap-1">
-              <h4 className="text-muted-foreground shrink-0">
-                More Information
-              </h4>
-              <p>
+              <RandomizedTextEffect
+                as="h4"
+                content={`More Information`}
+                className="text-muted-foreground shrink-0"
+              />
+
+              <RandomizedTextEffect
+                as="p"
+                content={`
                 A set of beautifully-designed, accessible components for
                 building Uploadthing components. Built for Next.js with Shadcn
-                Registry. Open Source. Open Code.
-              </p>
+                Registry. Open Source. Open Code.`}
+              />
             </div>
           </div>
         </div>

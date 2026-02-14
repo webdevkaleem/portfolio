@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
 
 export default function CurrentTime() {
   const [time, setTime] = useState("");
@@ -25,8 +26,13 @@ export default function CurrentTime() {
   }, []);
 
   return (
-    <p className="flex justify-start items-start flex-col md:col-span-2 md:col-start-9 md:justify-end md:items-end">
-      PAKISTAN, AT <br /> {time}
-    </p>
+    <div className="flex justify-start items-start flex-col md:col-span-2 md:col-start-9 md:justify-end md:items-end">
+      <RandomizedTextEffect
+        as="p"
+        content={`PAKISTAN, AT <br />`}
+        className="flex justify-start items-start flex-col md:col-span-2 md:col-start-9 md:justify-end md:items-end"
+      />
+      <p>{time}</p>
+    </div>
   );
 }

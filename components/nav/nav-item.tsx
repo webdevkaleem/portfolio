@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
+import { RandomizedTextEffect } from "../ui/randomized-text-effect";
 
 export default function NavItem({
   content,
@@ -37,7 +38,7 @@ export default function NavItem({
         })}
         onClick={onClick}
       >
-        {content}
+        <RandomizedTextEffect as="p" content={content} />
       </Link>
       <span
         className={cn(

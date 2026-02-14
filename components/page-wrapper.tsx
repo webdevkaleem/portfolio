@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useMediaQuery } from "./hooks/use-media-query";
 
 export default function PageWrapper({
   className,
@@ -14,6 +15,8 @@ export default function PageWrapper({
   className?: string;
 }) {
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,6 +34,7 @@ export default function PageWrapper({
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: !isDesktop ? 0.3 : 0 }}
         className={cn("flex flex-col gap-16", className)}
       >
         {children}

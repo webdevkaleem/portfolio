@@ -12,12 +12,13 @@ import { cn } from "@/lib/utils";
 const DEFAULT_STEP_DURATION_MS = 50;
 const DEFAULT_REVEAL_DURATION_MS = 80;
 const DEFAULT_INITIAL_RANDOM_DURATION_MS = 500;
+const completedAnimationKeys = new Set<string>();
 
 type SupportedTag = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 type ContentToken =
-  | { type: "word"; value: string }
-  | { type: "space"; value: string }
-  | { type: "break" };
+  | { key: string; type: "word"; value: string }
+  | { key: string; type: "space"; value: string }
+  | { key: string; type: "break" };
 
 export type RandomizedTextEffectProps<TTag extends SupportedTag = "p"> = {
   content: string;
@@ -48,11 +49,13 @@ function isPermutationOfContent(content: string, candidate: string) {
 function parseContentTokens(content: string) {
   const chunks = content.split(/(<br\s*\/?>)/gi);
   const tokens: ContentToken[] = [];
+  let tokenId = 0;
 
   for (const chunk of chunks) {
     if (!chunk) continue;
     if (/^<br\s*\/?>$/i.test(chunk)) {
-      tokens.push({ type: "break" });
+      tokens.push({ key: `break-${tokenId}`, type: "break" });
+      tokenId += 1;
       continue;
     }
 
@@ -60,10 +63,11 @@ function parseContentTokens(content: string) {
     for (const part of parts) {
       if (!part) continue;
       if (/^\s+$/.test(part)) {
-        tokens.push({ type: "space", value: part });
+        tokens.push({ key: `space-${tokenId}`, type: "space", value: part });
       } else {
-        tokens.push({ type: "word", value: part });
+        tokens.push({ key: `word-${tokenId}`, type: "word", value: part });
       }
+      tokenId += 1;
     }
   }
 
@@ -87,6 +91,7 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
 }: RandomizedTextEffectProps<TTag>) {
   const Component = (as ?? "p") as ElementType;
   const tokens = useMemo(() => parseContentTokens(content), [content]);
+  const animationKey = useMemo(() => content, [content]);
   const words = useMemo(
     () =>
       tokens
@@ -113,6 +118,11 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
   }, [plainContent, randomizedCharacters]);
 
   useEffect(() => {
+    if (completedAnimationKeys.has(animationKey)) {
+      setAnimatedWords(words);
+      return;
+    }
+
     let isCancelled = false;
     const wait = (ms: number) =>
       new Promise((resolve) => setTimeout(resolve, ms));
@@ -150,6 +160,7 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
 
       if (revealDurationMs <= 0) {
         setAnimatedWords(words);
+        completedAnimationKeys.add(animationKey);
         return;
       }
 
@@ -164,6 +175,7 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
       }
 
       setAnimatedWords(words);
+      completedAnimationKeys.add(animationKey);
     };
 
     run();
@@ -172,6 +184,7 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
       isCancelled = true;
     };
   }, [
+    animationKey,
     words,
     randomPool,
     stepDurationMs,
@@ -180,18 +193,18 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
   ]);
 
   let wordIndex = 0;
-  const renderedContent = tokens.map((token, tokenIndex) => {
+  const renderedContent = tokens.map((token) => {
     if (token.type === "break") {
-      return <br key={`br-${tokenIndex}`} />;
+      return <br key={token.key} />;
     }
 
     if (token.type === "space") {
-      return <Fragment key={`space-${tokenIndex}`}>{token.value}</Fragment>;
+      return <Fragment key={token.key}>{token.value}</Fragment>;
     }
 
     const value = animatedWords[wordIndex] ?? token.value;
     wordIndex += 1;
-    return <Fragment key={`char-${tokenIndex}`}>{value}</Fragment>;
+    return <Fragment key={token.key}>{value}</Fragment>;
   });
 
   return (

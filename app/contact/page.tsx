@@ -116,7 +116,7 @@ function ContactCard({
             <div className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border/70 bg-background/90">
               <Icon className="size-5" />
             </div>
-            <div className="space-y-1">
+            <div className="flex flex-col gap-1">
               <RandomizedTextEffect as="h2" content={content} />
               <RandomizedTextEffect
                 as="p"

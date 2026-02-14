@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import PageWrapper from "@/components/page-wrapper";
 import { Card, CardContent } from "@/components/ui/card";
+import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
 import { cn } from "@/lib/utils";
 
 export default function ContactPage() {
@@ -55,12 +56,18 @@ export default function ContactPage() {
       <section className="min-h-[calc(100vh-176px)] py-16 md:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-8 md:w-2/3 lg:w-1/2">
-            <h1 className="text-5xl leading-tight break-all">CONTACT</h1>
-            <p>
-              I'm always looking for new opportunities and collaborations. If
+            <RandomizedTextEffect
+              as="h1"
+              content={`CONTACT`}
+              className="text-5xl leading-tight break-all"
+            />
+
+            <RandomizedTextEffect
+              as="p"
+              content={`  I'm always looking for new opportunities and collaborations. If
               you have any questions or would like to work together, please
-              don't hesitate to contact me.
-            </p>
+              don't hesitate to contact me.`}
+            />
           </div>
 
           <div className="relative mt-10 md:mt-14">
@@ -110,8 +117,12 @@ function ContactCard({
               <Icon className="size-5" />
             </div>
             <div className="space-y-1">
-              <h2>{content}</h2>
-              <p className="text-muted-foreground">{description}</p>
+              <RandomizedTextEffect as="h2" content={content} />
+              <RandomizedTextEffect
+                as="p"
+                content={description}
+                className="text-muted-foreground"
+              />
             </div>
           </div>
         </CardContent>

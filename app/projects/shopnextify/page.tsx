@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageWrapper from "@/components/page-wrapper";
@@ -10,6 +11,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
+import { siteConfig } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "ShopNextify Project",
+  description:
+    "ShopNextify is a production-ready ecommerce template by Kaleem Bhatti, built with Next.js and Payload CMS.",
+  alternates: {
+    canonical: "/projects/shopnextify",
+  },
+  openGraph: {
+    url: "/projects/shopnextify",
+    title: `ShopNextify | ${siteConfig.name}`,
+    description:
+      "Case study and gallery for ShopNextify, a production-ready ecommerce project by Kaleem Bhatti.",
+  },
+};
 
 export default function ShopNextifyPage() {
   const galleryImages = [

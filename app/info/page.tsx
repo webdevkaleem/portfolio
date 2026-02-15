@@ -1,7 +1,24 @@
 import { Loader2 } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import PageWrapper from "@/components/page-wrapper";
 import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
+import { siteConfig } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "Info",
+  description:
+    "Learn more about Kaleem Bhatti, a full stack developer focused on Next.js, TypeScript, UI design, and modern web applications.",
+  alternates: {
+    canonical: "/info",
+  },
+  openGraph: {
+    url: "/info",
+    title: `Info | ${siteConfig.name}`,
+    description:
+      "Background and developer profile for Kaleem Bhatti, including stack focus and project interests.",
+  },
+};
 
 export default function InfoPage() {
   return (

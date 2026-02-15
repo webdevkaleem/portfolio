@@ -6,11 +6,28 @@ import {
   MessageCircle,
   Twitter,
 } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageWrapper from "@/components/page-wrapper";
 import { Card, CardContent } from "@/components/ui/card";
 import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
+import { siteConfig } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Kaleem Bhatti (webdevkaleem) for freelance work, collaborations, and full stack web development opportunities.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    url: "/contact",
+    title: `Contact | ${siteConfig.name}`,
+    description:
+      "Reach out to Kaleem Bhatti via email or social platforms for collaborations and projects.",
+  },
+};
 
 export default function ContactPage() {
   const contacts = [

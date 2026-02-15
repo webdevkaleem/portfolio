@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageWrapper from "@/components/page-wrapper";
@@ -10,6 +11,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
+import { siteConfig } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "UploadThing UI Project",
+  description:
+    "UploadThing UI is an open-source set of accessible UploadThing components for Next.js by Kaleem Bhatti.",
+  alternates: {
+    canonical: "/projects/uploadthingui",
+  },
+  openGraph: {
+    url: "/projects/uploadthingui",
+    title: `UploadThing UI | ${siteConfig.name}`,
+    description:
+      "Case study and gallery for UploadThing UI, an open-source Next.js component project by Kaleem Bhatti.",
+  },
+};
 
 export default function UploadThingUIPage() {
   const galleryImages = [

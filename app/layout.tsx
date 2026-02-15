@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Fragment_Mono } from "next/font/google";
+import Script from "next/script";
 import Footer from "@/components/footer";
 import Nav from "@/components/nav";
+import { siteConfig } from "@/lib/seo";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Providers from "./providers";
@@ -24,9 +26,56 @@ const fragmentMono = Fragment_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kaleem Bhatti | webdevkaleem",
-  description:
-    "Kaleem Bhatti. Full Stack Developer, Designer, and Creator. Portfolio, Projects, and Contact Information.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: "%s | Kaleem Bhatti",
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  creator: siteConfig.creator,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: "/",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} portfolio preview`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: siteConfig.xHandle,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ["/twitter-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -34,6 +83,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    jobTitle: "Full Stack Developer",
+    sameAs: [
+      "https://github.com/webdevkaleem",
+      "https://www.linkedin.com/in/webdevkaleem",
+      "https://x.com/webdevkaleem",
+    ],
+  };
+
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.title,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    inLanguage: "en",
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${fragmentMono.className} antialiased text-sm`}>
@@ -49,6 +120,12 @@ export default function RootLayout({
         </Providers>
 
         <Analytics />
+        <Script id="person-structured-data" type="application/ld+json">
+          {JSON.stringify(personStructuredData)}
+        </Script>
+        <Script id="website-structured-data" type="application/ld+json">
+          {JSON.stringify(websiteStructuredData)}
+        </Script>
       </body>
     </html>
   );

@@ -164,7 +164,7 @@ export default function ShopNextifyPage() {
           <Carousel className="md:hidden w-full">
             <CarouselContent className="ml-0">
               {galleryImages.map(({ id, src, width, height }, idx) => (
-                <CarouselItem key={id} className="pl-0">
+                <CarouselItem key={id} className="pl-0 relative">
                   <Image
                     src={src}
                     alt={`ShopNextify Project ${idx + 1}`}
@@ -174,6 +174,10 @@ export default function ShopNextifyPage() {
                     className="w-full h-auto"
                     priority={idx < 2}
                   />
+
+                  <div className="absolute inset-0 flex items-center justify-center -z-10">
+                    <Loader2 className="size-4 animate-spin" />
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -196,6 +196,10 @@ export default function ShopNextifyPage() {
                   className="w-full h-auto"
                   priority={idx < 2}
                 />
+
+                <div className="absolute inset-0 flex items-center justify-center -z-10">
+                  <Loader2 className="size-4 animate-spin" />
+                </div>
               </div>
             ))}
           </div>

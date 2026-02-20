@@ -57,9 +57,7 @@ export default function SkillsList({ skills }: { skills: Skill[] }) {
         />
         <Select value={selectedTag} onValueChange={setSelectedTag}>
           <SelectTrigger className="w-full max-w-[220px] overflow-hidden sm:w-[180px]">
-            <SelectValue asChild>
-              <RandomizedTextEffect as="p" content="All" className="px-2" />
-            </SelectValue>
+            <SelectValue placeholder="All" className="px-2" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all" className="px-2">

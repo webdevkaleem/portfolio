@@ -10,13 +10,18 @@ export default function Nav() {
         <RandomizedTextEffect as="p" content="KALEEM BHATTI" />
       </Link>
 
-      <div className="flex items-center justify-end sm:hidden">
+      <div className="flex items-center justify-end md:hidden">
         <MobileNav />
       </div>
 
       <NavItem
         content="WORK"
         href="/"
+        className="justify-end lg:justify-start"
+      />
+      <NavItem
+        content="SKILLS"
+        href="/skills"
         className="justify-end lg:justify-start"
       />
       <NavItem

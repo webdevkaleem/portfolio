@@ -22,7 +22,7 @@ export default function NavItem({
   const isActive = pathname === href;
 
   return (
-    <div className={cn("items-center group hidden sm:flex", className)}>
+    <div className={cn("items-center group hidden md:flex", className)}>
       <span
         className={cn(
           "opacity-0 transition-opacity duration-300 text-primary",

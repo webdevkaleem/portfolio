@@ -285,14 +285,14 @@ export default function SkillsPage() {
                     rel="noreferrer"
                     className="group inline-flex items-center gap-4"
                   >
-                    <span>Open Github</span>
+                    <RandomizedTextEffect as="p" content="Open Github" />
                     <SquareArrowOutUpRight className="size-4 text-primary" />
                   </Link>
                   <Link
                     href="/contact"
                     className="group inline-flex items-center gap-4"
                   >
-                    <span>Get in touch</span>
+                    <RandomizedTextEffect as="p" content="Get in touch" />
                     <SquareArrowOutUpRight className="size-4 text-primary" />
                   </Link>
                 </div>

@@ -3,6 +3,7 @@
 import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
 import {
   Select,
   SelectContent,
@@ -49,12 +50,16 @@ export default function SkillsList({ skills }: { skills: Skill[] }) {
   return (
     <div className="flex flex-col gap-3 md:gap-4">
       <div className="mb-1 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <span className="text-xs uppercase tracking-wide text-muted-foreground">
-          Filter by tag
-        </span>
+        <RandomizedTextEffect
+          as="p"
+          content="Filter by tag"
+          className="text-xs uppercase tracking-wide text-muted-foreground"
+        />
         <Select value={selectedTag} onValueChange={setSelectedTag}>
           <SelectTrigger className="w-full max-w-[220px] overflow-hidden sm:w-[180px]">
-            <SelectValue placeholder="All tags" className="px-2" />
+            <SelectValue asChild>
+              <RandomizedTextEffect as="p" content="All" className="px-2" />
+            </SelectValue>
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all" className="px-2">
@@ -94,16 +99,24 @@ export default function SkillsList({ skills }: { skills: Skill[] }) {
             </div>
 
             <div className="min-w-0 flex flex-col gap-1">
-              <h2 className="truncate text-lg leading-tight">{skill.name}</h2>
-              <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                {skill.category}
-              </p>
+              <RandomizedTextEffect
+                as="h2"
+                content={skill.name}
+                className="truncate uppercase"
+              />
+              <RandomizedTextEffect
+                as="p"
+                content={skill.category}
+                className="text-xs uppercase text-muted-foreground truncate"
+              />
             </div>
           </div>
 
-          <div className="shrink-0 border border-border/70 bg-background/80 px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            {skill.tag}
-          </div>
+          <RandomizedTextEffect
+            as="p"
+            content={skill.tag}
+            className="shrink-0 border border-border/70 bg-background/80 px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground"
+          />
         </div>
       ))}
 

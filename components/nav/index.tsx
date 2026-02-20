@@ -20,8 +20,8 @@ export default function Nav() {
         className="justify-end lg:justify-start"
       />
       <NavItem
-        content="SKILLS"
-        href="/skills"
+        content="TOOLBOX"
+        href="/toolbox"
         className="justify-end lg:justify-start"
       />
       <NavItem

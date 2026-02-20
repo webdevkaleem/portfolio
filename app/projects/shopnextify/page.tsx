@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,38 +33,26 @@ export default function ShopNextifyPage() {
     {
       id: "shopnextify-ui-1",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4OwOLcTrctNJLh3IHxzPGM8wOXriSpU56Koqy",
-      width: 1920,
-      height: 1080,
     },
     {
       id: "shopnextify-ui-2",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4JSoD4XLWjoqOglNTmVK71v3YicetAJ05SPUG",
-      width: 1920,
-      height: 1080,
     },
     {
       id: "shopnextify-ui-3",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4ExorUAqP02b3G7ABZnxhIXpmjOSsFciRWHqw",
-      width: 1920,
-      height: 1080,
     },
     {
       id: "shopnextify-ui-4",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4rXi9kasSynQCzAIKtwhOle47WVGfYFqdZBHR",
-      width: 1920,
-      height: 1080,
     },
     {
       id: "shopnextify-ui-5",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC49itepF12Hp8FjSV5Wr6sknGRPuyQofDX7elY",
-      width: 1920,
-      height: 1080,
     },
     {
       id: "shopnextify-ui-6",
       src: "https://1nc21dil75.ufs.sh/f/0j4J6npV5BC4sddTiGhA8d5SDZfUXxLIPY3W92sHQgCvhEGk",
-      width: 1920,
-      height: 1080,
     },
   ];
 
@@ -163,17 +151,21 @@ export default function ShopNextifyPage() {
           {/* Mobile: carousel */}
           <Carousel className="md:hidden w-full">
             <CarouselContent className="ml-0">
-              {galleryImages.map(({ id, src, width, height }, idx) => (
+              {galleryImages.map(({ id, src }, idx) => (
                 <CarouselItem key={id} className="pl-0">
-                  <Image
-                    src={src}
-                    alt={`ShopNextify Project ${idx + 1}`}
-                    width={width}
-                    height={height}
-                    sizes="100vw"
-                    className="w-full h-auto"
-                    priority={idx < 2}
-                  />
+                  <div className="relative aspect-video">
+                    <Image
+                      src={src}
+                      alt={`ShopNextify Project ${idx + 1}`}
+                      fill
+                      sizes="100vw"
+                      className="object-contain"
+                      priority={idx < 2}
+                    />
+                    <div className="absolute bg-foreground/15 dark:bg-foreground/10 h-full w-full flex items-center justify-center -z-10">
+                      <Loader2 className="size-4 animate-spin" />
+                    </div>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -185,17 +177,19 @@ export default function ShopNextifyPage() {
 
           {/* Desktop: stacked full-width images */}
           <div className="hidden md:grid grid-cols-1 gap-3 md:gap-4">
-            {galleryImages.map(({ id, src, width, height }, idx) => (
-              <div key={id}>
+            {galleryImages.map(({ id, src }, idx) => (
+              <div key={id} className="relative aspect-video">
                 <Image
                   src={src}
                   alt={`ShopNextify Project ${idx + 1}`}
-                  width={width}
-                  height={height}
+                  fill
                   sizes="(max-width: 768px) 100vw, 60vw"
-                  className="w-full h-auto"
+                  className="object-contain"
                   priority={idx < 2}
                 />
+                <div className="absolute bg-foreground/15 dark:bg-foreground/10 h-full w-full flex items-center justify-center -z-10">
+                  <Loader2 className="size-4 animate-spin" />
+                </div>
               </div>
             ))}
           </div>

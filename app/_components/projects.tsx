@@ -55,7 +55,7 @@ export default function Projects() {
               >
                 <Link
                   href={project.href}
-                  className="relative block overflow-hidden rounded-sm aspect-video"
+                  className="relative overflow-hidden bg-foreground/15 dark:bg-foreground/10 rounded-sm aspect-video"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
@@ -68,7 +68,7 @@ export default function Projects() {
                       isHovered ? "shadow-md shadow-white/20" : "shadow-none"
                     } ${shouldDim ? "scale-y-[0.85]" : "scale-y-100"}`}
                   />
-                  <div className="absolute inset-0 flex items-center justify-center -z-10">
+                  <div className="absolute h-full w-full flex items-center justify-center -z-10">
                     <Loader2 className="size-4 animate-spin" />
                   </div>
                 </Link>

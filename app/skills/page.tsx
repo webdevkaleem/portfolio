@@ -1,4 +1,4 @@
-import { ArrowUpRight, SquareArrowOutUpRight } from "lucide-react";
+import { SquareArrowOutUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageWrapper from "@/components/page-wrapper";
@@ -27,6 +27,8 @@ const skills = [
     category: "Deployment Platform",
     tag: "Cloud",
     placeholder: "VC",
+    iconPath: "/tools-n-skills/vercel.svg",
+    iconColor: "#000000",
   },
   {
     id: "eslint",
@@ -34,6 +36,8 @@ const skills = [
     category: "Code Quality Tool",
     tag: "Tooling",
     placeholder: "ES",
+    iconPath: "/tools-n-skills/eslint.svg",
+    iconColor: "#4B32C3",
   },
   {
     id: "nextjs",
@@ -41,6 +45,8 @@ const skills = [
     category: "React Framework",
     tag: "Frontend",
     placeholder: "NX",
+    iconPath: "/tools-n-skills/nextdotjs.svg",
+    iconColor: "#000000",
   },
   {
     id: "tailwind",
@@ -48,6 +54,8 @@ const skills = [
     category: "Utility-First CSS Framework",
     tag: "Frontend",
     placeholder: "TW",
+    iconPath: "/tools-n-skills/tailwindcss.svg",
+    iconColor: "#06B6D4",
   },
   {
     id: "git",
@@ -55,6 +63,8 @@ const skills = [
     category: "Version Control System",
     tag: "Tooling",
     placeholder: "GT",
+    iconPath: "/tools-n-skills/git.svg",
+    iconColor: "#F05032",
   },
   {
     id: "github",
@@ -62,6 +72,8 @@ const skills = [
     category: "Code Hosting Platform",
     tag: "Tooling",
     placeholder: "GH",
+    iconPath: "/tools-n-skills/github.svg",
+    iconColor: "#181717",
   },
   {
     id: "react",
@@ -69,6 +81,8 @@ const skills = [
     category: "JavaScript Library",
     tag: "Frontend",
     placeholder: "RE",
+    iconPath: "/tools-n-skills/react.svg",
+    iconColor: "#61DAFB",
   },
   {
     id: "react-hook-form",
@@ -76,6 +90,8 @@ const skills = [
     category: "Form Management Library",
     tag: "Frontend",
     placeholder: "RF",
+    iconPath: "/tools-n-skills/reacthookform.svg",
+    iconColor: "#EC5990",
   },
   {
     id: "cpp",
@@ -83,13 +99,8 @@ const skills = [
     category: "Programming Language",
     tag: "Language",
     placeholder: "C+",
-  },
-  {
-    id: "aws",
-    name: "AWS",
-    category: "Cloud Platform",
-    tag: "Cloud",
-    placeholder: "AW",
+    iconPath: "/tools-n-skills/cplusplus.svg",
+    iconColor: "#00599C",
   },
   {
     id: "render",
@@ -97,6 +108,8 @@ const skills = [
     category: "Cloud Hosting Platform",
     tag: "Cloud",
     placeholder: "RD",
+    iconPath: "/tools-n-skills/render.svg",
+    iconColor: "#46E3B7",
   },
   {
     id: "esbuild",
@@ -104,6 +117,8 @@ const skills = [
     category: "JavaScript Bundler",
     tag: "Build",
     placeholder: "EB",
+    iconPath: "/tools-n-skills/esbuild.svg",
+    iconColor: "#FFCF00",
   },
   {
     id: "express",
@@ -111,6 +126,8 @@ const skills = [
     category: "Backend Web Framework",
     tag: "Backend",
     placeholder: "EX",
+    iconPath: "/tools-n-skills/express.svg",
+    iconColor: "#000000",
   },
   {
     id: "nodejs",
@@ -118,6 +135,8 @@ const skills = [
     category: "JavaScript Runtime",
     tag: "Backend",
     placeholder: "ND",
+    iconPath: "/tools-n-skills/nodedotjs.svg",
+    iconColor: "#5FA04E",
   },
   {
     id: "pug",
@@ -125,6 +144,8 @@ const skills = [
     category: "Template Engine",
     tag: "Backend",
     placeholder: "PG",
+    iconPath: "/tools-n-skills/pug.svg",
+    iconColor: "#A86454",
   },
   {
     id: "pnpm",
@@ -132,6 +153,8 @@ const skills = [
     category: "Package Manager",
     tag: "Tooling",
     placeholder: "PM",
+    iconPath: "/tools-n-skills/pnpm.svg",
+    iconColor: "#F69220",
   },
   {
     id: "webpack",
@@ -139,6 +162,8 @@ const skills = [
     category: "Module Bundler",
     tag: "Build",
     placeholder: "WP",
+    iconPath: "/tools-n-skills/webpack.svg",
+    iconColor: "#8DD6F9",
   },
   {
     id: "vite",
@@ -146,6 +171,8 @@ const skills = [
     category: "Build Tool",
     tag: "Build",
     placeholder: "VT",
+    iconPath: "/tools-n-skills/vite.svg",
+    iconColor: "#646CFF",
   },
   {
     id: "mongodb",
@@ -153,6 +180,8 @@ const skills = [
     category: "NoSQL Database",
     tag: "Database",
     placeholder: "MG",
+    iconPath: "/tools-n-skills/mongodb.svg",
+    iconColor: "#47A248",
   },
   {
     id: "postgres",
@@ -160,6 +189,8 @@ const skills = [
     category: "Relational Database",
     tag: "Database",
     placeholder: "PS",
+    iconPath: "/tools-n-skills/postgresql.svg",
+    iconColor: "#336791",
   },
   {
     id: "redis",
@@ -167,6 +198,8 @@ const skills = [
     category: "In-Memory Data Store",
     tag: "Database",
     placeholder: "RD",
+    iconPath: "/tools-n-skills/redis.svg",
+    iconColor: "#DC382D",
   },
   {
     id: "figma",
@@ -174,6 +207,8 @@ const skills = [
     category: "Design Tool",
     tag: "Design",
     placeholder: "FG",
+    iconPath: "/tools-n-skills/figma.svg",
+    iconColor: "#F24E1E",
   },
   {
     id: "dribbble",
@@ -181,6 +216,8 @@ const skills = [
     category: "Design Platform",
     tag: "Design",
     placeholder: "DB",
+    iconPath: "/tools-n-skills/dribbble.svg",
+    iconColor: "#EA4C89",
   },
   {
     id: "postman",
@@ -188,6 +225,8 @@ const skills = [
     category: "API Development Tool",
     tag: "Tooling",
     placeholder: "PT",
+    iconPath: "/tools-n-skills/postman.svg",
+    iconColor: "#FF6C37",
   },
   {
     id: "turbopack",
@@ -195,6 +234,8 @@ const skills = [
     category: "JavaScript Bundler",
     tag: "Build",
     placeholder: "TP",
+    iconPath: "/tools-n-skills/turborepo.svg",
+    iconColor: "#000000",
   },
 ];
 
@@ -273,10 +314,22 @@ export default function SkillsPage() {
                   className="flex items-center justify-between gap-4 border border-border/60 bg-foreground/10 px-4 py-3 md:px-5 md:py-4"
                 >
                   <div className="flex items-center gap-4 min-w-0">
-                    <div className="size-14 shrink-0 border border-border/70 bg-background/80 grid place-items-center">
-                      <span className="text-xs font-medium tracking-wider text-muted-foreground">
-                        {skill.placeholder}
-                      </span>
+                    <div className="size-14 shrink-0 border border-border/70 bg-background dark:bg-foreground grid place-items-center">
+                      <div
+                        aria-hidden
+                        className="size-7"
+                        style={{
+                          backgroundColor: skill.iconColor,
+                          WebkitMaskImage: `url(${skill.iconPath})`,
+                          maskImage: `url(${skill.iconPath})`,
+                          WebkitMaskRepeat: "no-repeat",
+                          maskRepeat: "no-repeat",
+                          WebkitMaskPosition: "center",
+                          maskPosition: "center",
+                          WebkitMaskSize: "contain",
+                          maskSize: "contain",
+                        }}
+                      />
                     </div>
 
                     <div className="min-w-0 flex flex-col gap-1">

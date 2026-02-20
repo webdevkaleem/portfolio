@@ -20,7 +20,7 @@ export default function MobileNav() {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger className={"sm:hidden"}>
+      <SheetTrigger className={"md:hidden"}>
         <Menu />
       </SheetTrigger>
       <SheetContent>
@@ -31,6 +31,12 @@ export default function MobileNav() {
               <NavItem
                 content="WORK"
                 href="/"
+                className="md:col-start-8 col-start-3 justify-between flex"
+                onClick={toggleOpen}
+              />
+              <NavItem
+                content="SKILLS"
+                href="/skills"
                 className="md:col-start-8 col-start-3 justify-between flex"
                 onClick={toggleOpen}
               />

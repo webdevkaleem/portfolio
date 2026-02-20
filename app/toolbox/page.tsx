@@ -1,7 +1,7 @@
 import { SquareArrowOutUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import SkillsList from "@/app/skills/_components/skills-list";
+import SkillsList from "@/app/toolbox/_components/skills-list";
 import PageWrapper from "@/components/page-wrapper";
 import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
 import { siteConfig } from "@/lib/seo";

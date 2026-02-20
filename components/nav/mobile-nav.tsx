@@ -35,8 +35,8 @@ export default function MobileNav() {
                 onClick={toggleOpen}
               />
               <NavItem
-                content="SKILLS"
-                href="/skills"
+                content="TOOLBOX"
+                href="/toolbox"
                 className="md:col-start-8 col-start-3 justify-between flex"
                 onClick={toggleOpen}
               />

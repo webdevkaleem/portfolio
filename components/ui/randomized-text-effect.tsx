@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 const DEFAULT_STEP_DURATION_MS = 50;
 const DEFAULT_REVEAL_DURATION_MS = 80;
 const DEFAULT_INITIAL_RANDOM_DURATION_MS = 500;
-const completedAnimationKeys = new Set<string>();
 
 type SupportedTag = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 type ContentToken =
@@ -91,7 +90,6 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
 }: RandomizedTextEffectProps<TTag>) {
   const Component = (as ?? "p") as ElementType;
   const tokens = useMemo(() => parseContentTokens(content), [content]);
-  const animationKey = useMemo(() => content, [content]);
   const words = useMemo(
     () =>
       tokens
@@ -118,11 +116,6 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
   }, [plainContent, randomizedCharacters]);
 
   useEffect(() => {
-    if (completedAnimationKeys.has(animationKey)) {
-      setAnimatedWords(words);
-      return;
-    }
-
     let isCancelled = false;
     const wait = (ms: number) =>
       new Promise((resolve) => setTimeout(resolve, ms));
@@ -160,7 +153,6 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
 
       if (revealDurationMs <= 0) {
         setAnimatedWords(words);
-        completedAnimationKeys.add(animationKey);
         return;
       }
 
@@ -175,7 +167,6 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
       }
 
       setAnimatedWords(words);
-      completedAnimationKeys.add(animationKey);
     };
 
     run();
@@ -184,7 +175,6 @@ export function RandomizedTextEffect<TTag extends SupportedTag = "p">({
       isCancelled = true;
     };
   }, [
-    animationKey,
     words,
     randomPool,
     stepDurationMs,

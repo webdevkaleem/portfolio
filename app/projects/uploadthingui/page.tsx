@@ -75,8 +75,9 @@ export default function UploadThingUIPage() {
                 content={`SERVICES`}
                 className="text-muted-foreground shrink-0"
               />
-              <div className="lg:text-right">
+              <div className="lg:text-right flex gap-2">
                 <RandomizedTextEffect as="p" content={`DESIGN`} />
+                <RandomizedTextEffect as="p" content={`|`} />
                 <RandomizedTextEffect as="p" content={`DEVELOPMENT`} />
               </div>
             </div>

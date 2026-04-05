@@ -57,7 +57,7 @@ export default function InfoPage() {
               sizes="(max-width: 768px) 66vw, 33vw"
               className={`object-cover transition-all duration-500 origin-bottom`}
             />
-            <div className="absolute inset-0 flex items-center justify-center -z-10">
+            <div className="absolute inset-0 flex items-center justify-center -z-10 bg-foreground/15 dark:bg-foreground/10">
               <Loader2 className="size-4 animate-spin" />
             </div>
           </div>

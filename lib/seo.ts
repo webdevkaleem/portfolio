@@ -1,4 +1,4 @@
-const FALLBACK_SITE_URL = "https://webdevkaleem.com";
+import { FALLBACK_SITE_URL } from "./utils";
 
 function normalizeSiteUrl(rawUrl: string) {
   const withProtocol = rawUrl.startsWith("http") ? rawUrl : `https://${rawUrl}`;
@@ -10,13 +10,15 @@ function resolveSiteUrl() {
     process.env.NEXT_PUBLIC_SITE_URL ??
     process.env.SITE_URL ??
     process.env.VERCEL_PROJECT_PRODUCTION_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined) ??
-    FALLBACK_SITE_URL;
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : undefined) ??
+    `https://${FALLBACK_SITE_URL}`;
 
   try {
     return new URL(normalizeSiteUrl(candidate)).toString().replace(/\/$/, "");
   } catch {
-    return FALLBACK_SITE_URL;
+    return `https://${FALLBACK_SITE_URL}`;
   }
 }
 

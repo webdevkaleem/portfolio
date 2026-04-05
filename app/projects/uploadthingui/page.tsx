@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import { RandomizedTextEffect } from "@/components/ui/randomized-text-effect";
 import { siteConfig } from "@/lib/seo";
+import { FALLBACK_SITE_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "UploadThing UI Project",
@@ -60,7 +61,7 @@ export default function UploadThingUIPage() {
           />
 
           <div className="flex flex-col gap-8 py-8">
-            <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
+            <div className="flex flex-wrap flex-col lg:flex-row justify-between lg:gap-8 gap-1">
               <RandomizedTextEffect
                 as="h4"
                 content={`YEAR`}
@@ -69,7 +70,7 @@ export default function UploadThingUIPage() {
               <RandomizedTextEffect as="p" content={`2025`} />
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
+            <div className="flex flex-wrap flex-col lg:flex-row justify-between lg:gap-8 gap-1">
               <RandomizedTextEffect
                 as="h4"
                 content={`SERVICES`}
@@ -82,26 +83,26 @@ export default function UploadThingUIPage() {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
+            <div className="flex flex-col flex-wrap lg:flex-row justify-between lg:gap-8 gap-1">
               <RandomizedTextEffect
                 as="h4"
                 content={`LIVE SITE`}
                 className="text-muted-foreground shrink-0"
               />
               <Link
-                href="https://uploadthingui.vercel.app"
+                href={`https://uploadthingui.${FALLBACK_SITE_URL}`}
                 target="_blank"
                 className="flex items-center gap-1 hover:underline"
               >
                 <RandomizedTextEffect
                   as="p"
-                  content={`UPLOADTHINGUI.VERCEL.APP`}
+                  content={`UPLOADTHINGUI.${FALLBACK_SITE_URL.toLocaleUpperCase()}`}
                 />
                 <ArrowUpRight className="size-3" />
               </Link>
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-1">
+            <div className="flex flex-col flex-wrap lg:flex-row justify-between lg:gap-8 gap-1">
               <h4 className="text-muted-foreground shrink-0">GITHUB</h4>
               <Link
                 href="https://github.com/webdevkaleem/uploadthingui"

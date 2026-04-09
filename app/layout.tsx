@@ -6,6 +6,7 @@ import Nav from "@/components/nav";
 import { siteConfig } from "@/lib/seo";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import InstallAppPrompt from "@/components/install-app-prompt";
 import Providers from "./providers";
 
 const fragmentMono = Fragment_Mono({
@@ -113,6 +114,7 @@ export default function RootLayout({
       <head />
       <body className={`${fragmentMono.className} antialiased text-sm`}>
         <Providers>
+          <InstallAppPrompt />
           <Nav />
 
           {/* 176px = 80px (nav) + 64px (footer) + 32px (footer my-4) */}
